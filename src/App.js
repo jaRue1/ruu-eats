@@ -12,14 +12,14 @@ function App() {
   }, [])
   // console.log(allRestaurants)
   function handleSubmit(){
-    console.log("Your have Handled your Submit")
+    console.log("Your have Handled your Submit: ", text)
   }
 
 
   return (
     <div className="App App-header">
       <br />
-      <input type="text" onChange={(e) => setText(e.target.value)} />
+      <input type="text" onChange={(event) => setText(event.target.value)} value ={text} />
       <h3>{text}</h3>
       <br />
       <button onClick={() => handleSubmit()}>Event Handler</button>
