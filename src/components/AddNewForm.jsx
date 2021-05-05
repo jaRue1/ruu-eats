@@ -1,9 +1,10 @@
 import React, { useState } from "react"
 
 
+
 function AddNewForm() {
+  const [newRestaurant, setNewRestaurant ] = useState({})
   function SendRestaurant(event) {
-    const [newRestaurant, setNewRestaurant] = useState({})
     event.preventDefault()
     fetch("https://bocacode-intranet-api.web.app/restaurants", {
       method: "POST",
@@ -24,8 +25,7 @@ function AddNewForm() {
           Name :
           <input
             type="text"
-            onChange={(event) =>
-              setNewRestaurant({ ...newRestaurant, name: event.target.value })
+            onChange={(event) => setNewRestaurant({ ...newRestaurant, name: event.target.value })
             }
             // value={name}
           />
@@ -35,11 +35,7 @@ function AddNewForm() {
           Address :
           <input
             type="text"
-            onChange={(event) =>
-              setNewRestaurant({
-                ...newRestaurant,
-                address: event.target.value,
-              })
+            onChange={(event) => setNewRestaurant({...newRestaurant,address: event.target.value })
             }
             // value={address}
           />
@@ -49,8 +45,7 @@ function AddNewForm() {
           Rating :
           <input
             type="text"
-            onChange={(event) =>
-              setNewRestaurant({ ...newRestaurant, rating: event.target.value })
+            onChange={(event) => setNewRestaurant({ ...newRestaurant, rating: event.target.value })
             }
             // value={rating}
           />
@@ -60,11 +55,7 @@ function AddNewForm() {
           Cuisine :
           <input
             type="text"
-            onChange={(event) =>
-              setNewRestaurant({
-                ...newRestaurant,
-                cuisine: event.target.value,
-              })
+            onChange={(event) => setNewRestaurant({...newRestaurant,cuisine: event.target.value })
             }
             // value={cuisine}
           />
@@ -74,8 +65,7 @@ function AddNewForm() {
           Photo :
           <input
             type="text"
-            onChange={(event) =>
-              setNewRestaurant({ ...newRestaurant, photo: event.target.value })
+            onChange={(event) => setNewRestaurant({ ...newRestaurant, photo: event.target.value })
             }
             // value={photo}
           />
