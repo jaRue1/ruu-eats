@@ -1,12 +1,13 @@
 import "./App.css"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
+import AddNewForm from "./components/AddNewForm"
 import React, { useState, useEffect } from "react"
 
 function App() {
   const [allRestaurants, setAllRestaurants] = useState()
   const [text, setText] = useState("Mutable Text")
-  const [newRestaurant, setNewRestaurant] = useState({})
+  
   useEffect(() => {
     fetch("https://bocacode-intranet-api.web.app/restaurants")
       .then((response) => response.json())
@@ -16,97 +17,18 @@ function App() {
   function handleSubmit() {
     console.log("Your have Handled your Submit: ", text)
   }
-  function sendRestaurant(event) {
-    event.preventDefault()
-    fetch("https://bocacode-intranet-api.web.app/restaurants", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newRestaurant),
-    })
-      .then((response) => response.json())
-      .then((status) => console.log(status))
-  }
 
   return (
     <div className="App App-header">
       <Header/>
-      <form action="">
-        <br />
-        <label htmlFor="">
-          Example :
+      Example :
           <input
             type="text"
             onChange={(event) => setText(event.target.value)}
             value={text}
           />
-          <br />
-          <br />
-        </label>
-        <label>
-          Name :
-          <input
-            type="text"
-            onChange={(event) =>
-              setNewRestaurant({ ...newRestaurant, name: event.target.value })
-            }
-            // value={name}
-          />
-          <br />
-        </label>
-        <label>
-          Address :
-          <input
-            type="text"
-            onChange={(event) =>
-              setNewRestaurant({
-                ...newRestaurant,
-                address: event.target.value,
-              })
-            }
-            // value={address}
-          />
-          <br />
-        </label>
-        <label>
-          Rating :
-          <input
-            type="text"
-            onChange={(event) =>
-              setNewRestaurant({ ...newRestaurant, rating: event.target.value })
-            }
-            // value={rating}
-          />
-          <br />
-        </label>
-        <label>
-          Cuisine :
-          <input
-            type="text"
-            onChange={(event) =>
-              setNewRestaurant({
-                ...newRestaurant,
-                cuisine: event.target.value,
-              })
-            }
-            // value={cuisine}
-          />
-          <br />
-        </label>
-        <label>
-          Photo :
-          <input
-            type="text"
-            onChange={(event) =>
-              setNewRestaurant({ ...newRestaurant, photo: event.target.value })
-            }
-            // value={photo}
-          />
-        </label>
-        <br />
-        <br />
-        <button onClick={(event) => sendRestaurant(event)}>Send Post</button>
-      </form>
-      <h3>{text}</h3>
+          <h3>{text}</h3>
+      <AddNewForm/>
       <br />
       <button onClick={() => handleSubmit()}>Event Handler</button>
       {!allRestaurants ? (
