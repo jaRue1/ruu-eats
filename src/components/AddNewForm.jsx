@@ -65,7 +65,7 @@ function AddNewForm() {
           Photo :
           <input
             type="text"
-            onChange={(event) => setNewRestaurant({ ...newRestaurant, photo: event.target.value })
+            onChange={(event) => setNewRestaurant({ ...newRestaurant, photoUrl: event.target.value })
             }
             // value={photo}
           />
