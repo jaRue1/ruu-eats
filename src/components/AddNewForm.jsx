@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-
+import { Button, Card } from "react-bootstrap"
 
 
 function AddNewForm() {
@@ -15,7 +15,7 @@ function AddNewForm() {
       .then((status) => console.log(status))
   }
   return (
-    <form action="">
+    <form className="myForm" action="">
         <br />
         <label htmlFor="">
           <br />
@@ -72,7 +72,7 @@ function AddNewForm() {
         </label>
         <br />
         <br />
-        <button onClick={(event) => SendRestaurant(event)}>Send Post</button>
+        <Button onClick={(event) => SendRestaurant(event)}>Send Post</Button>
       </form>
   )
   

@@ -3,7 +3,7 @@ import {Navbar, Button, Form, Nav, FormControl } from 'react-bootstrap'
 
 function Header() {
   return (
-    <Navbar bg="dark" variant="dark">
+    <Navbar bg="black" variant="dark">
     <Navbar.Brand href="#home">Ruu Eats Lists </Navbar.Brand>
     <Nav className="mr-auto">
       <Nav.Link href="#home">Home</Nav.Link>

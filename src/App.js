@@ -4,6 +4,7 @@ import Footer from "./components/Footer"
 import AddNewForm from "./components/AddNewForm"
 import React, { useState, useEffect } from "react"
 import { Button, Card } from "react-bootstrap"
+import SingleRestaurant from "./components/SingleRestaurant"
 
 function App() {
   const [allRestaurants, setAllRestaurants] = useState()
@@ -20,7 +21,7 @@ function App() {
   }
 
   return (
-    <>
+    
       <div className="App App-header">
         <Header />
         Example :
@@ -32,35 +33,22 @@ function App() {
         <h3>{text}</h3>
         <AddNewForm className="" />
         <br />
-        <button onClick={() => handleSubmit()}>Event Handler</button>
-        <div style={{ display: 'flex', justifyContent: 'space-evenly', width: '100%', margin: '3rem 0' }}>
-        {!allRestaurants ? (
-          <h2>Loading ..... </h2>
-        ) : (
-          allRestaurants.map((restaurant, index) => {
-            return (
-              <>
-                <div>
-                <Card className="bg-dark text-white" style={{ width: "18rem" }}>
-                  <Card.Img variant="top" src= {restaurant.photoUrl} />
-                  <Card.Body>
-                    <Card.Title>{restaurant.name}</Card.Title>
-                    <Card.Text>{restaurant.address}</Card.Text>
-                    <Card.Text>{restaurant.cuisine}</Card.Text>
-                    <Card.Text>{restaurant.rating}</Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
-                  </Card.Body>
-                </Card>
-              </div>
-
-              </>
-            )
-          })
-        )}
-      </div>
+        <Button onClick={() => handleSubmit()}>Event Handler</Button>
+        <div className="">
+          {!allRestaurants ? (
+            <h2>Loading ..... </h2>
+          ) : (
+            allRestaurants.map((restaurant, index) => {
+              return (
+                <>
+                  <SingleRestaurant restaurant={restaurant} />
+                </>
+              )
+            })
+          )}
+        </div>
         <Footer />
       </div>
-    </>
   )
 }
 

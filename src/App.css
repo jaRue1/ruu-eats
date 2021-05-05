@@ -12,9 +12,19 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+.Apps-cards-container{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  margin: 3rem 0;
+
+}
 
 .App-header {
-  background-color: #282c34;
+  background: rgb(2,0,36);
+  background: -moz-linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,8,116,1) 0%, rgba(9,9,121,1) 0%, rgba(5,4,77,1) 0%, rgba(8,7,106,1) 0%, rgba(6,5,85,1) 0%, rgba(0,212,255,1) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,8,116,1) 0%, rgba(9,9,121,1) 0%, rgba(5,4,77,1) 0%, rgba(8,7,106,1) 0%, rgba(6,5,85,1) 0%, rgba(0,212,255,1) 100%);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,8,116,1) 0%, rgba(9,9,121,1) 0%, rgba(5,4,77,1) 0%, rgba(8,7,106,1) 0%, rgba(6,5,85,1) 0%, rgba(0,212,255,1) 100%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -23,12 +33,15 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-.restaurant-card{
-  
-}
+
 
 .App-link {
   color: #61dafb;
+}
+.myForm{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 @keyframes App-logo-spin {
