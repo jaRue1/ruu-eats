@@ -4,11 +4,7 @@ import React, { useState, useEffect } from "react"
 function App() {
   const [allRestaurants, setAllRestaurants] = useState()
   const [text, setText] = useState("Mutable Text")
-  const [name, setName] = useState("Restaurant Name ")
-  const [address, setAddress] = useState("Restaurant Address")
-  const [cuisine, setCuisine] = useState("Restaurant Cuisine ")
-  const [rating, setRating] = useState("Restaurant Rating")
-  const [photo, setPhoto] = useState("Restaurant Photo")
+  const [newRestaurant, setNewRestaurant] = useState({})
   useEffect(() => {
     fetch("https://bocacode-intranet-api.web.app/restaurants")
       .then((response) => response.json())
@@ -20,18 +16,10 @@ function App() {
   }
   function sendRestaurant(event) {
     event.preventDefault()
-
-    const newRestaurants = {
-      name: name,
-      address: address,
-      cuisine: cuisine,
-      rating: rating,
-      photoUrl: photo
-    }
     fetch("https://bocacode-intranet-api.web.app/restaurants", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newRestaurants),
+      body: JSON.stringify(newRestaurant),
     })
       .then((response) => response.json())
       .then((status) => console.log(status))
@@ -40,49 +28,80 @@ function App() {
   return (
     <div className="App App-header">
       <form action="">
-      <br />
-      <label htmlFor="">
-        Example :
-      <input
-        type="text"
-        onChange={(event) => setText(event.target.value)}
-        value={text}/>
-       <br />
-       <br />
-       </label>
-       <label>
-         Name : 
-       <input type="text"
-       onChange={(event) => setName(event.target.value)}
-       value={name}/>
-       <br />
-       </label>
-       <label>
-         Address :
-       <input type="text"onChange={(event) => setAddress(event.target.value)}
-       value={address}/>
-       <br />
-       </label>
-       <label>
-         Rating :
-       <input type="text"onChange={(event) => setRating(event.target.value)}
-       value={rating}/>
-       <br />
-       </label>
-       <label>
-         Cuisine :
-       <input type="text"onChange={(event) => setCuisine(event.target.value)}
-       value={cuisine}/>
-       <br />
-       </label>
-       <label>
-         Photo : 
-       <input type="text"onChange={(event) => setPhoto(event.target.value)}
-       value={photo}/>
-       </label>
-       <br/>
-       <br/>
-       <button onClick={(event) => sendRestaurant(event)}>Send Post</button>
+        <br />
+        <label htmlFor="">
+          Example :
+          <input
+            type="text"
+            onChange={(event) => setText(event.target.value)}
+            value={text}
+          />
+          <br />
+          <br />
+        </label>
+        <label>
+          Name :
+          <input
+            type="text"
+            onChange={(event) =>
+              setNewRestaurant({ ...newRestaurant, name: event.target.value })
+            }
+            // value={name}
+          />
+          <br />
+        </label>
+        <label>
+          Address :
+          <input
+            type="text"
+            onChange={(event) =>
+              setNewRestaurant({
+                ...newRestaurant,
+                address: event.target.value,
+              })
+            }
+            // value={address}
+          />
+          <br />
+        </label>
+        <label>
+          Rating :
+          <input
+            type="text"
+            onChange={(event) =>
+              setNewRestaurant({ ...newRestaurant, rating: event.target.value })
+            }
+            // value={rating}
+          />
+          <br />
+        </label>
+        <label>
+          Cuisine :
+          <input
+            type="text"
+            onChange={(event) =>
+              setNewRestaurant({
+                ...newRestaurant,
+                cuisine: event.target.value,
+              })
+            }
+            // value={cuisine}
+          />
+          <br />
+        </label>
+        <label>
+          Photo :
+          <input
+            type="text"
+            onChange={(event) =>
+              setNewRestaurant({ ...newRestaurant, photo: event.target.value })
+            }
+            // value={photo}
+          />
+        </label>
+        <br />
+        <br />
+        <button onClick={(event) => sendRestaurant(event)}>Send Post</button>
       </form>
       <h3>{text}</h3>
       <br />
